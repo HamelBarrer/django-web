@@ -22,20 +22,23 @@
             </form>
         </div>
         {% if commentaries %}
-            <div class="col-sm-12 col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-                        {% for comment in commentaries %}
+            {% for comment in commentaries %}
+                <div class="col-sm-12 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">                
                             <h3 class="card-title">{{ comment.name }}</h3>
                             <p class="card-text">{{ comment.comment }}</p>
-                        {% endfor %}
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
         {% else %}
             <div class="col-sm-12">
                 <p>No hay comentarios</p>
             </div>
         {% endif %}
+    </div>
+    <div class="model fade" id="login" role="dialog">
+        
     </div>
 {% endblock %}
