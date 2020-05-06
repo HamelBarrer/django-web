@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'users',
     'home',
+    'products',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -116,6 +117,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# # Inicio de sesion
+# LOGIN_REDIRECT_URL = 'products:product'
+# LOGOUT_REDIRECT_URL = 'home:index'
 
 
 # Static files (CSS, JavaScript, Images)
