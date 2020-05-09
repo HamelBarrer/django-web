@@ -4,9 +4,7 @@ from django.contrib import messages
 
 from .models import Comment
 
-from .forms import CommentForm, UserForm
-
-from users.models import User
+from .forms import CommentForm
 
 
 class IndexView(View):

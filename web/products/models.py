@@ -11,7 +11,7 @@ class Category(models.Model):
 
 class Product(models.Model):
     name_product = models.CharField(max_length=25)
-    description = models.CharField(max_length=25)
+    description = models.CharField(max_length=250)
     price = models.IntegerField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     state = models.BooleanField(default=True)
@@ -19,4 +19,4 @@ class Product(models.Model):
     created_at = models.DateField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return self.name_product

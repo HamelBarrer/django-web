@@ -33,14 +33,6 @@ class CategoryForm(forms.ModelForm):
 
 
 class ProductForm(forms.ModelForm):
-    name_product = forms.CharField(max_length=25)
-
-    def clean_name_product(self):
-        product = self.cleaned_data.get('name_product')
-        if Product.objects.filter(name_product=name_product).exists():
-            raise forms.ValidationError('El nombre del producto ya existe')
-        return product
-
     class Meta:
         model = Product
         fields = (
@@ -52,7 +44,7 @@ class ProductForm(forms.ModelForm):
             'price': 'Precio',
             'category': 'Categoria',
             'state': 'Estado',
-            'image': 'Imagen del Producto'
+            'image': 'Imagen del Producto',
         }
         widgets = {
             'name_product': forms.TextInput(
@@ -73,5 +65,11 @@ class ProductForm(forms.ModelForm):
                     'id': 'price',
                 }
             ),
-            'category': forms.SelectMultiple(),
+            'category': forms.Select(
+                attrs={
+                    'class': 'custom-select',
+                    'id': 'category',
+                }
+            ),
+            'state': forms.CheckboxInput(),
         }
